@@ -1,12 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API_CRM.Controllers
 {
-    public class HomeController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class HomeController : ControllerBase
     {
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult Get()
         {
-            return View();
-        }
+            return Ok("Welcome to the CRM API!");
+        }  
+        
     }
 }
